@@ -1,0 +1,9 @@
+org\casadocodigo\spring_kafka\SpringKafkaApplication.class
+org\casadocodigo\spring_kafka\model\Shop.class
+org\casadocodigo\spring_kafka\config\KafkaConfig.class
+org\casadocodigo\spring_kafka\dto\ShopDTO.class
+org\casadocodigo\spring_kafka\repository\ShopRepository.class
+org\casadocodigo\spring_kafka\dto\ShopItemDTO.class
+org\casadocodigo\spring_kafka\client\KafkaClient.class
+org\casadocodigo\spring_kafka\model\ShopItem.class
+org\casadocodigo\spring_kafka\controller\ShopController.class
