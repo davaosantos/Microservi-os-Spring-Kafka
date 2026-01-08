@@ -47,10 +47,19 @@ public class KafkaConfig {
     public ConsumerFactory<String, ShopDTO> consumerFactory() {
         JacksonJsonDeserializer<ShopDTO> deserializer =
                 new JacksonJsonDeserializer<>(ShopDTO.class);
+
+        deserializer.addTrustedPackages("*");
+
+        // ADICIONE APENAS ESTA LINHA:
+        deserializer.setUseTypeHeaders(false);
+
         Map<String, Object> props = new HashMap<>();
-        props.put(
-                ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                bootstrapAddress);
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
+
+        // ADICIONE ESTAS DUAS LINHAS:
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "group");
+        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+
         return new DefaultKafkaConsumerFactory<>(
                 props,
                 new StringDeserializer(),
